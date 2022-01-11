@@ -5,26 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="380dp"
-        android:layout_height="299dp"
-        android:text="Coté Obscur"
-        app:backgroundTintMode="add"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="376dp"
+        android:layout_height="303dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517" />
+        app:srcCompat="@drawable/obscur"
+        tools:ignore="SpeakableTextPresentCheck" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="380dp"
-        android:layout_height="299dp"
-        android:text="Coté Lumineux"
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="376dp"
+        android:layout_height="303dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="382dp" />
+        app:srcCompat="@drawable/lumineux"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:layout_editor_absoluteY="393dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
