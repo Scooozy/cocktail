@@ -1,8 +1,5 @@
 package com.example.starwarsproject.model;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 public class People {
     String name;
     String height;
