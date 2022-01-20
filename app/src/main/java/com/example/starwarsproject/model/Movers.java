@@ -103,7 +103,7 @@ public class Movers {
         return "Movers{" +
                 "title='" + title + '\'' +
                 ", year=" + year +
-                ", Genre='" + Genre + '\'' +
+                ", Genre='" + genre + '\'' +
                 ", plot='" + plot + '\'' +
                 ", actors='" + actors + '\'' +
                 ", poster='" + poster + '\'' +
