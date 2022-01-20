@@ -7,6 +7,9 @@ public class People {
     String gender;
     String image;
     String species;
+    String dateNaissance;
+    String apparitions;
+    String wikiLien;
 
     public People(String name, String height, String mass, String gender, String image, String species) {
         this.name = name;
@@ -69,7 +72,29 @@ public class People {
         this.species = species;
     }
 
+    public String getDateNaissance() {
+        return dateNaissance;
+    }
 
+    public void setDateNaissance(String dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public String getApparitions() {
+        return apparitions;
+    }
+
+    public void setApparitions(String apparitions) {
+        this.apparitions = apparitions;
+    }
+
+    public String getWikiLien() {
+        return wikiLien;
+    }
+
+    public void setWikiLien(String wikiLien) {
+        this.wikiLien = wikiLien;
+    }
 
     @Override
     public String toString() {
@@ -80,6 +105,9 @@ public class People {
                 ", gender='" + gender + '\'' +
                 ", image='" + image + '\'' +
                 ", species='" + species + '\'' +
+                ", date de naissance='" + dateNaissance + '\'' +
+                ", Apparitions='" + apparitions + '\'' +
+                ", lien vers le Wiki='" + wikiLien + '\'' +
                 '}';
     }
 }
