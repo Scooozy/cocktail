@@ -3,7 +3,7 @@ package com.example.starwarsproject.model;
 public class Movers {
     String title;
     int year;
-    String Genre;
+    String genre;
     String plot;
     String actors;
     String poster;
@@ -14,7 +14,7 @@ public class Movers {
     public Movers(String title, int year, String genre, String plot, String actors, String poster, Double imdbRating, int totalSeasons, int runtime) {
         this.title = title;
         this.year = year;
-        Genre = genre;
+        this.genre = genre;
         this.plot = plot;
         this.actors = actors;
         this.poster = poster;
@@ -43,11 +43,11 @@ public class Movers {
     }
 
     public String getGenre() {
-        return Genre;
+        return genre;
     }
 
     public void setGenre(String genre) {
-        Genre = genre;
+        this.genre = genre;
     }
 
     public String getPlot() {
