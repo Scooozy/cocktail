@@ -6,12 +6,12 @@ import java.util.Objects;
 public class People {
     String name;
     String height;
-    int mass;
+    String mass;
     String gender;
     String image;
     String species;
 
-    public People(String name, String height, int mass, String gender, String image, String species) {
+    public People(String name, String height, String mass, String gender, String image, String species) {
         this.name = name;
         this.height = height;
         this.mass = mass;
@@ -39,11 +39,11 @@ public class People {
         this.height = height;
     }
 
-    public int getMass() {
+    public String getMass() {
         return mass;
     }
 
-    public void setMass(int mass) {
+    public void setMass(String mass) {
         this.mass = mass;
     }
 
