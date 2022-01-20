@@ -18,7 +18,6 @@ public class AccueilActivity extends AppCompatActivity {
         darkSide = findViewById(R.id.darkSide);
         lightSide = findViewById(R.id.lightSide);
 
-
         darkSide.setOnClickListener(v -> {
             Intent intent = new Intent(AccueilActivity.this, MainActivity.class);
             intent.putExtra("forceSide", true);
