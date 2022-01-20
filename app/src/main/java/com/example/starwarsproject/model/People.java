@@ -1,18 +1,21 @@
 package com.example.starwarsproject.model;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class People {
     String name;
-    int height;
+    String height;
     int mass;
     String gender;
     String homeworld;
     String image;
     String species;
     String[] affiliation;
-    String[] masters;
+    String masters;
     String[] apprentices;
 
-    public People(String name, int height, int mass, String gender, String homeworld, String image, String species, String[] affiliation, String[] masters, String[] apprentices) {
+    public People(String name, String height, int mass, String gender, String homeworld, String image, String species, String[] affiliation, String masters, String[] apprentices) {
         this.name = name;
         this.height = height;
         this.mass = mass;
@@ -36,11 +39,11 @@ public class People {
         this.name = name;
     }
 
-    public int getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
@@ -92,11 +95,11 @@ public class People {
         this.affiliation = affiliation;
     }
 
-    public String[] getMasters() {
+    public String getMasters() {
         return masters;
     }
 
-    public void setMasters(String[] masters) {
+    public void setMasters(String masters) {
         this.masters = masters;
     }
 
@@ -106,5 +109,22 @@ public class People {
 
     public void setApprentices(String[] apprentices) {
         this.apprentices = apprentices;
+    }
+
+
+    @Override
+    public String toString() {
+        return "People{" +
+                "name='" + name + '\'' +
+                ", height=" + height +
+                ", mass=" + mass +
+                ", gender='" + gender + '\'' +
+                ", homeworld='" + homeworld + '\'' +
+                ", image='" + image + '\'' +
+                ", species='" + species + '\'' +
+                ", affiliation=" + Arrays.toString(affiliation) +
+                ", masters=" + masters +
+                ", apprentices=" + Arrays.toString(apprentices) +
+                '}';
     }
 }
