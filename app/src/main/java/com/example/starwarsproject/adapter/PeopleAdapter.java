@@ -4,77 +4,57 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.bumptech.glide.Glide;
 import com.example.starwarsproject.R;
+import com.example.starwarsproject.glide.GlideApp;
 import com.example.starwarsproject.model.People;
 
 
 import java.util.List;
 
-public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.MyViewHolder> {
+public class PeopleAdapter extends BaseAdapter{
 
-    private Context mContext;
-    private List<People> mData;
-    private OnPeopleListener mOnPeopleListener;
+    private List<People> peopleImage;
+    private Context context;
 
-    public PeopleAdapter(Context mContext, List<People> mData, OnPeopleListener mOnPeopleListener) {
-        this.mContext = mContext;
-        this.mData = mData;
-        this.mOnPeopleListener = mOnPeopleListener;
-    }
 
-    @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v;
-        LayoutInflater inflater = LayoutInflater.from(mContext);
-        v = inflater.inflate(R.layout.activity_people_item, parent, false);
+    public  PeopleAdapter(List<People> peopleImage, Context context) {
+        this.peopleImage = peopleImage;
+        this.context = context;
 
-        return new MyViewHolder(v, mOnPeopleListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name.setText(mData.get(position).getName());
-        Glide.with(mContext)
-                .load(mData.get(position).getImage())
-                .into(holder.img);
+    public int getCount() {
+        return peopleImage.size();
     }
 
     @Override
-    public int getItemCount() {
-        return mData.size();
+    public Object getItem(int i) {
+        return peopleImage.get(i);
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView name;
-        ImageView img;
-        OnPeopleListener onPeopleListener;
+    @Override
+    public long getItemId(int i) {
+        return i;
+    }
 
-        public MyViewHolder(@NonNull View itemView, OnPeopleListener onPeopleListener) {
-            super(itemView);
-
-            name = itemView.findViewById(R.id.txtName);
-            img = itemView.findViewById(R.id.imgPeople);
-            this.onPeopleListener = onPeopleListener;
-
-            itemView.setOnClickListener(this);
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        if (view == null){
+            view = LayoutInflater.from(context).inflate(R.layout.activity_people_item,viewGroup, false);
         }
+        ImageView imageView =view.findViewById(R.id.imgViewy);
+        TextView textView = view.findViewById(R.id.textViewGrid2);
 
-        @Override
-        public void onClick(View v) {
-            onPeopleListener.onPeopleClick(getAdapterPosition());
-        }
-    }
+        textView.setText(peopleImage.get(i).getName());
+        GlideApp.with(context).load(peopleImage.get(i).getImage()).into(imageView);
+        System.out.println(peopleImage.get(i).getImage());
 
-    public interface OnPeopleListener{
-        void onPeopleClick(int position);
+
+        return view;
     }
 }
