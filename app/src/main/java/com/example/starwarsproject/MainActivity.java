@@ -1,6 +1,8 @@
 package com.example.starwarsproject;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -28,8 +30,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        View view = findViewById(R.id.main);
         gridView = findViewById(R.id.idGridView);
+
+        Boolean forceSide = getIntent().getExtras().getBoolean("forceSide");
+        if (forceSide){
+            view.setBackgroundColor(Color.rgb( 80, 10, 2));
+        }else{
+
+            view.setBackgroundColor(Color.rgb( 2, 10, 80));
+        }
 
         getAllImage();
 
