@@ -8,24 +8,16 @@ public class People {
     String height;
     int mass;
     String gender;
-    String homeworld;
     String image;
     String species;
-    String[] affiliation;
-    String masters;
-    String[] apprentices;
 
-    public People(String name, String height, int mass, String gender, String homeworld, String image, String species, String[] affiliation, String masters, String[] apprentices) {
+    public People(String name, String height, int mass, String gender, String image, String species) {
         this.name = name;
         this.height = height;
         this.mass = mass;
         this.gender = gender;
-        this.homeworld = homeworld;
         this.image = image;
         this.species = species;
-        this.affiliation = affiliation;
-        this.masters = masters;
-        this.apprentices = apprentices;
     }
 
     public People() {
@@ -63,13 +55,6 @@ public class People {
         this.gender = gender;
     }
 
-    public String getHomeworld() {
-        return homeworld;
-    }
-
-    public void setHomeworld(String homeworld) {
-        this.homeworld = homeworld;
-    }
 
     public String getImage() {
         return image;
@@ -87,29 +72,6 @@ public class People {
         this.species = species;
     }
 
-    public String[] getAffiliation() {
-        return affiliation;
-    }
-
-    public void setAffiliation(String[] affiliation) {
-        this.affiliation = affiliation;
-    }
-
-    public String getMasters() {
-        return masters;
-    }
-
-    public void setMasters(String masters) {
-        this.masters = masters;
-    }
-
-    public String[] getApprentices() {
-        return apprentices;
-    }
-
-    public void setApprentices(String[] apprentices) {
-        this.apprentices = apprentices;
-    }
 
 
     @Override
@@ -119,12 +81,8 @@ public class People {
                 ", height=" + height +
                 ", mass=" + mass +
                 ", gender='" + gender + '\'' +
-                ", homeworld='" + homeworld + '\'' +
                 ", image='" + image + '\'' +
                 ", species='" + species + '\'' +
-                ", affiliation=" + Arrays.toString(affiliation) +
-                ", masters=" + masters +
-                ", apprentices=" + Arrays.toString(apprentices) +
                 '}';
     }
 }
