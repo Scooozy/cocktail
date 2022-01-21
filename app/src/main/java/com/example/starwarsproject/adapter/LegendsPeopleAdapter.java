@@ -12,19 +12,17 @@ import com.example.starwarsproject.R;
 import com.example.starwarsproject.glide.GlideApp;
 import com.example.starwarsproject.model.People;
 
-
 import java.util.List;
 
-public class PeopleAdapter extends BaseAdapter{
+public class LegendsPeopleAdapter extends BaseAdapter{
 
     private List<People> peopleImage;
     private Context context;
 
 
-    public  PeopleAdapter(List<People> peopleImage, Context context) {
+    public LegendsPeopleAdapter(List<People> peopleImage, Context context) {
         this.peopleImage = peopleImage;
         this.context = context;
-
     }
 
     @Override

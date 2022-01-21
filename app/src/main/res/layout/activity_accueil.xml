@@ -7,23 +7,23 @@
     android:background="#323A43">
 
     <ImageButton
-        android:id="@+id/darkSide"
+        android:id="@+id/canon"
         android:layout_width="376dp"
         android:layout_height="303dp"
         android:layout_marginTop="60dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/lightSide"
+        app:layout_constraintBottom_toTopOf="@+id/legends"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/obscur"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:srcCompat="@drawable/canon"
+        />
 
     <ImageButton
-        android:id="@+id/lightSide"
+        android:id="@+id/legends"
         android:layout_width="376dp"
         android:layout_height="303dp"
         android:layout_marginTop="24dp"
@@ -32,7 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/darkSide"
-        app:srcCompat="@drawable/lumineux"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/canon"
+        app:srcCompat="@drawable/legends1" />
 </androidx.constraintlayout.widget.ConstraintLayout>

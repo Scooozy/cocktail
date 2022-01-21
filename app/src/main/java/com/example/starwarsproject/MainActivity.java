@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.starwarsproject.adapter.PeopleAdapter;
+import com.example.starwarsproject.adapter.CanonPeopleAdapter;
 import com.example.starwarsproject.model.People;
 import com.example.starwarsproject.web.ApiClient;
 
@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         View view = findViewById(R.id.main);
         gridView = findViewById(R.id.idGridView);
 
-        Boolean forceSide = getIntent().getExtras().getBoolean("forceSide");
-        if (forceSide){
+        Boolean canon = getIntent().getExtras().getBoolean("canon");
+        if (canon){
             view.setBackgroundColor(Color.rgb( 80, 10, 2));
         }else{
 
@@ -52,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<People>> call, Response<List<People>> response) {
 
                 if (response.isSuccessful()){
-                    String message = "Request succesful ...";
+                    String message = "Request successful ...";
                     Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
 
                     peopleList = response.body();
-                    PeopleAdapter peopleAdapter = new PeopleAdapter(peopleList, MainActivity.this);
-                    gridView.setAdapter(peopleAdapter);
+                    CanonPeopleAdapter canonPeopleAdapter = new CanonPeopleAdapter(peopleList, MainActivity.this);
+                    gridView.setAdapter(canonPeopleAdapter);
                 }else{
-                    String message = "An error occured try again later ...";
+                    String message = "An error occurred try again later ...";
                     Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
                 }
             }

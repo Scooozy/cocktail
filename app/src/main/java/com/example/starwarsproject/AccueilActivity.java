@@ -8,26 +8,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AccueilActivity extends AppCompatActivity {
 
-    ImageButton darkSide;
-    ImageButton lightSide;
+    ImageButton canon;
+    ImageButton legends;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        darkSide = findViewById(R.id.darkSide);
-        lightSide = findViewById(R.id.lightSide);
+        canon = findViewById(R.id.canon);
+        legends = findViewById(R.id.legends);
 
-        darkSide.setOnClickListener(v -> {
+        canon.setOnClickListener(v -> {
             Intent intent = new Intent(AccueilActivity.this, MainActivity.class);
-            intent.putExtra("forceSide", true);
+            intent.putExtra("canon", true);
 
             startActivity(intent);
         });
 
-        lightSide.setOnClickListener(v -> {
+        legends.setOnClickListener(v -> {
             Intent intent = new Intent(AccueilActivity.this, MainActivity.class);
-            intent.putExtra("forceSide", false);
+            intent.putExtra("canon", false);
 
             startActivity(intent);
         });
