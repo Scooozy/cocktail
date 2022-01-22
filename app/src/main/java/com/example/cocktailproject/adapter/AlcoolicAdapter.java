@@ -28,6 +28,7 @@ import retrofit2.Response;
 public class AlcoolicAdapter extends BaseAdapter{
 
     private List<Cocktails> cocktailAlcoolicList;
+    private List<Cocktail> cocktailAlcoolicNameList;
     private Context context;
     TextView textView;
 
@@ -62,9 +63,30 @@ public class AlcoolicAdapter extends BaseAdapter{
 
         ImageView imageView =view.findViewById(R.id.imgViewy);
 
+        Call<CocktailWrapper> coctailAlcoolicName = ApiClient.getInterface().getDrinkById(cocktailAlcoolicList.get(i).getIdDrink());
+        coctailAlcoolicName.enqueue(new Callback<CocktailWrapper>() {
+            @Override
+            public void onResponse(Call<CocktailWrapper> call, Response<CocktailWrapper> response) {
+                if (response.isSuccessful()){
+
+                    cocktailAlcoolicNameList = response.body().getDrinkName();
+                    System.out.println(cocktailAlcoolicNameList);
+                    textView.setText(cocktailAlcoolicNameList.get(0).getStrDrink());
 
 
-        textView.setText(cocktailAlcoolicList.get(i).getStrDrink());
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CocktailWrapper> call, Throwable t) {
+
+            }
+        });
+
+
+        //textView.setText(cocktailAlcoolicNameList.get(i).getStrDrink());
         GlideApp.with(context).load(cocktailAlcoolicList.get(i).getStrDrinkThumb()).into(imageView);
 
 
