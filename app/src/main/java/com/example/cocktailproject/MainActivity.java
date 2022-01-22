@@ -1,16 +1,23 @@
 package com.example.cocktailproject;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cocktailproject.adapter.AdaptaterFiltre;
+import com.example.cocktailproject.adapter.AdaptateurSpinnerFiltres;
 import com.example.cocktailproject.adapter.AlcoolicAdapter;
+import com.example.cocktailproject.controleurs.ControleurClicFiltre;
 import com.example.cocktailproject.model.Cocktails;
 import com.example.cocktailproject.model.CocktailsWrapper;
+import com.example.cocktailproject.model.Filtre;
 import com.example.cocktailproject.web.ApiClient;
 
 import java.util.ArrayList;
@@ -30,8 +37,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        View view = findViewById(R.id.main);
+
+
+        ArrayAdapter<Filtre> filtreAdapter;
+        String[] filtres = {"name of drink", "Search by ingredient", "Search an ingredient"};
+
         gridView = findViewById(R.id.listeCocktails);
+
+        Spinner choixFiltres = findViewById(R.id.choixFiltre);
+
+        AdaptateurSpinnerFiltres adaptateurChoix = new AdaptateurSpinnerFiltres(choixFiltres);
+        AdaptaterFiltre adaptateurFiltres = new AdaptaterFiltre(this, adaptateurChoix);
+
+
+        choixFiltres.setAdapter(adaptateurChoix);
+        choixFiltres.setOnItemSelectedListener(new ControleurClicFiltre(adaptateurFiltres, adaptateurChoix));
+
+
 
         Boolean alcohol = getIntent().getExtras().getBoolean("alcohol");
         if (alcohol){
@@ -101,4 +123,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

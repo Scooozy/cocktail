@@ -14,60 +14,29 @@
         android:id="@+id/titre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="title"
         android:textColor="@color/white"
         android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/nombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="40dp"
-        android:text="number"
-        android:textColor="@color/white"
-        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titre" />
-
-    <SeekBar
-        android:id="@+id/choixNombre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/nombre"
-        app:layout_constraintEnd_toStartOf="@id/compteur"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@id/nombre"
-        app:layout_constraintTop_toTopOf="@+id/nombre"
-        app:layout_goneMarginEnd="8dp" />
-
-    <TextView
-        android:id="@+id/compteur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nombre" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/choixFiltre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/compteur" />
+        app:layout_constraintTop_toBottomOf="@+id/titre" />
 
     <ListView
         android:id="@+id/listeFiltres"
@@ -105,35 +74,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rechercher" />
 
-    <ImageButton
-        android:id="@+id/precedent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:background="?android:colorBackground"
-        android:contentDescription="previous"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/rechercher"
-        app:layout_constraintEnd_toStartOf="@+id/rechercher"
-        app:layout_constraintTop_toTopOf="@+id/rechercher"
-        app:srcCompat="@android:drawable/ic_media_previous"
-        app:tint="?colorSecondary" />
 
-    <ImageButton
-        android:id="@+id/suivant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:background="?android:colorBackground"
-        android:contentDescription="next"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/rechercher"
-        app:layout_constraintStart_toEndOf="@+id/rechercher"
-        app:layout_constraintTop_toTopOf="@+id/rechercher"
-        app:layout_constraintVertical_bias="0.333"
-        app:srcCompat="@android:drawable/ic_media_next"
-        app:tint="?colorSecondary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
