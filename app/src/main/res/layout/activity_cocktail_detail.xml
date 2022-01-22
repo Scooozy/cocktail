@@ -14,7 +14,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="441dp">
+        android:layout_height="459dp">
 
         <ImageView
             android:id="@+id/imgViewy"
@@ -29,16 +29,17 @@
 
         <TextView
             android:id="@+id/textViewGrid2"
-            android:layout_width="145dp"
-            android:layout_height="wrap_content"
+            android:layout_width="554dp"
+            android:layout_height="53dp"
             android:layout_below="@+id/imgViewy"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginStart="47dp"
-            android:layout_marginLeft="47dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="9dp"
             android:text="TextView"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
 
     </RelativeLayout>

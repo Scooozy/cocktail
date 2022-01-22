@@ -1,61 +1,72 @@
 package com.example.cocktailproject.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Cocktail {
 
-    private String name;
-    private int id;
-    private String instructions;
-    private String imgURL;
+    @SerializedName("strDrink")
+    @Expose
+    private String strDrink;
+    @SerializedName("idDrink")
+    @Expose
+    private int idDrink;
+    @SerializedName("strInstructions")
+    @Expose
+    private String strInstructions;
+    @SerializedName("strDrinkThumb")
+    @Expose
+    private String strDrinkThumb;
 
-    public Cocktail(String name, int id, String instructions, String imgURL) {
-        this.name = name;
-        this.id = id;
-        this.instructions = instructions;
-        this.imgURL = imgURL;
+    public Cocktail(String strDrink, int idDrink, String strInstructions, String strDrinkThumb) {
+        this.strDrink = strDrink;
+        this.idDrink = idDrink;
+        this.strInstructions = strInstructions;
+        this.strDrinkThumb = strDrinkThumb;
     }
 
     public Cocktail() {
     }
 
-    public String getName() {
-        return name;
+    public String getStrDrink() {
+        return strDrink;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStrDrink(String strDrink) {
+        this.strDrink = strDrink;
     }
 
-    public int getId() {
-        return id;
+    public int getIdDrink() {
+        return idDrink;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdDrink(int idDrink) {
+        this.idDrink = idDrink;
     }
 
-    public String getInstructions() {
-        return instructions;
+    public String getStrInstructions() {
+        return strInstructions;
     }
 
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
+    public void setStrInstructions(String strInstructions) {
+        this.strInstructions = strInstructions;
     }
 
-    public String getimgURL() {
-        return imgURL;
+    public String getStrDrinkThumb() {
+        return strDrinkThumb;
     }
 
-    public void setimgURL(String imgURL) {
-        this.imgURL = imgURL;
+    public void setStrDrinkThumb(String strDrinkThumb) {
+        this.strDrinkThumb = strDrinkThumb;
     }
 
     @Override
     public String toString() {
         return "Cocktail{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", instructions='" + instructions + '\'' +
-                ", imgURL='" + imgURL + '\'' +
+                "strDrink='" + strDrink + '\'' +
+                ", idDrink=" + idDrink +
+                ", strInstructions='" + strInstructions + '\'' +
+                ", strDrinkThumb='" + strDrinkThumb + '\'' +
                 '}';
     }
 }

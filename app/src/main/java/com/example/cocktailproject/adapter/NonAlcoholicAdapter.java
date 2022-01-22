@@ -16,23 +16,24 @@ import java.util.List;
 
 public class NonAlcoholicAdapter extends BaseAdapter{
 
-    private List<Cocktails> peopleImage;
+    private List<Cocktails> cocktailNonAlcoolicList;
     private Context context;
+    TextView textView;
 
 
-    public NonAlcoholicAdapter(List<Cocktails> peopleImage, Context context) {
-        this.peopleImage = peopleImage;
+    public NonAlcoholicAdapter(List<Cocktails> cocktailNonAlcoolicList, Context context) {
+        this.cocktailNonAlcoolicList = cocktailNonAlcoolicList;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return peopleImage.size();
+        return cocktailNonAlcoolicList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return peopleImage.get(i);
+        return cocktailNonAlcoolicList.get(i);
     }
 
     @Override
@@ -40,15 +41,20 @@ public class NonAlcoholicAdapter extends BaseAdapter{
         return i;
     }
 
+    //recupere ceux entre 100BBY et 100ABY
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null){
             view = LayoutInflater.from(context).inflate(R.layout.activity_cocktail_detail,viewGroup, false);
         }
+        textView = view.findViewById(R.id.textViewGrid2);
+
         ImageView imageView =view.findViewById(R.id.imgViewy);
-        TextView textView = view.findViewById(R.id.textViewGrid2);
 
 
+
+        textView.setText(cocktailNonAlcoolicList.get(i).getStrDrink());
+        GlideApp.with(context).load(cocktailNonAlcoolicList.get(i).getStrDrinkThumb()).into(imageView);
 
 
         return view;

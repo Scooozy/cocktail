@@ -10,6 +10,7 @@ public class CocktailsWrapper {
     @Expose
     private List<Cocktails> drink;
 
+
     public List<Cocktails> getDrink() {
         return drink;
     }
@@ -17,4 +18,6 @@ public class CocktailsWrapper {
     public void setDrink(List<Cocktails> drink) {
         this.drink = drink;
     }
+
+
 }

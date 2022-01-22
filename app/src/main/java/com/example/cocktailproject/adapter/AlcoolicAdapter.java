@@ -7,33 +7,44 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.cocktailproject.MainActivity;
 import com.example.cocktailproject.R;
 import com.example.cocktailproject.glide.GlideApp;
+import com.example.cocktailproject.model.Cocktail;
+import com.example.cocktailproject.model.CocktailWrapper;
 import com.example.cocktailproject.model.Cocktails;
+import com.example.cocktailproject.model.CocktailsWrapper;
+import com.example.cocktailproject.web.ApiClient;
 
 
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class AlcoolicAdapter extends BaseAdapter{
 
-    private List<Cocktails> peopleCanon;
+    private List<Cocktails> cocktailAlcoolicList;
     private Context context;
+    TextView textView;
 
 
-    public AlcoolicAdapter(List<Cocktails> peopleCanon, Context context) {
-        this.peopleCanon = peopleCanon;
+    public AlcoolicAdapter(List<Cocktails> cocktailAlcoolicList, Context context) {
+        this.cocktailAlcoolicList = cocktailAlcoolicList;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return peopleCanon.size();
+        return cocktailAlcoolicList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return peopleCanon.get(i);
+        return cocktailAlcoolicList.get(i);
     }
 
     @Override
@@ -47,14 +58,14 @@ public class AlcoolicAdapter extends BaseAdapter{
         if (view == null){
             view = LayoutInflater.from(context).inflate(R.layout.activity_cocktail_detail,viewGroup, false);
         }
-
+        textView = view.findViewById(R.id.textViewGrid2);
 
         ImageView imageView =view.findViewById(R.id.imgViewy);
-        TextView textView = view.findViewById(R.id.textViewGrid2);
 
-        //textView.setText(peopleCanon.get(i).getName());
-        GlideApp.with(context).load(peopleCanon.get(i).getStrDrinkThumb()).into(imageView);
-        System.out.println(peopleCanon.get(i).getStrDrinkThumb());
+
+
+        textView.setText(cocktailAlcoolicList.get(i).getStrDrink());
+        GlideApp.with(context).load(cocktailAlcoolicList.get(i).getStrDrinkThumb()).into(imageView);
 
 
         return view;

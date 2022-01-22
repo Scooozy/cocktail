@@ -56,13 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
                     cocktailAlcoolicList = response.body().getDrink();
                     System.out.println(cocktailAlcoolicList);
-                    if (cocktailAlcoolicList != null){
-
-                        AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
-                        gridView.setAdapter(alcoolicAdapter);
-                    }else{
-                        System.out.println("null");
-                    }
+                    AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
+                    gridView.setAdapter(alcoolicAdapter);
                 }else{
                     String message = "An error occurred try again later ...";
                     Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
@@ -89,13 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
                     cocktailAlcoolicList = response.body().getDrink();
                     System.out.println(cocktailAlcoolicList);
-                    if (cocktailAlcoolicList != null){
 
-                        AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
-                        gridView.setAdapter(alcoolicAdapter);
-                    }else{
-                        System.out.println("null");
-                    }
+                    AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
+                    gridView.setAdapter(alcoolicAdapter);
                 }else{
                     String message = "An error occurred try again later ...";
                     Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
