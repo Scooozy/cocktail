@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         View view = findViewById(R.id.main);
-        gridView = findViewById(R.id.idGridView);
+        gridView = findViewById(R.id.listeCocktails);
 
         Boolean canon = getIntent().getExtras().getBoolean("canon");
         if (canon){
@@ -41,11 +41,9 @@ public class MainActivity extends AppCompatActivity {
             view.setBackgroundColor(Color.rgb( 2, 10, 80));
             getAllImageCanon();
         }
-
-
-
-
     }
+
+
     public void getAllImageCanon(){
         Call<List<People>> peopleCanon = ApiClient.getInterface2().getAllPeople();
         peopleCanon.enqueue(new Callback<List<People>>() {

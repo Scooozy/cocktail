@@ -45,7 +45,7 @@ public class CanonPeopleAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null){
-            view = LayoutInflater.from(context).inflate(R.layout.activity_people_item,viewGroup, false);
+            view = LayoutInflater.from(context).inflate(R.layout.activity_cocktail_detail,viewGroup, false);
         }
         String birth = peopleCanon.get(i).getBirth_year();
 
