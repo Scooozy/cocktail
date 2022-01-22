@@ -6,14 +6,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cocktailproject.model.People;
+import com.bumptech.glide.Glide;
+import com.example.cocktailproject.model.Cocktail;
 
 public class CocktailActivity extends AppCompatActivity {
     ImageView image;
 
     TextView nom;
-    TextView date_abv;
-    TextView description;
+    TextView Id;
+    TextView instruction;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +24,15 @@ public class CocktailActivity extends AppCompatActivity {
         //Declaration des champs
         image = findViewById(R.id.image);
         nom = findViewById(R.id.nom);
-        date_abv = findViewById(R.id.date_abv);
-        description = findViewById(R.id.description);
+        Id = findViewById(R.id.date_abv);
+        instruction = findViewById(R.id.description);
 
         //attribution des valeurs
-        People personnage = getIntent().getParcelableExtra("perso");
+        Cocktail cocktail = getIntent().getParcelableExtra("perso");
 
-        nom.setText(personnage.getName());
-        date_abv.setText(personnage.getGender());
-        description.setText(personnage.getDateNaissance());
-
+        Glide.with(this).load(cocktail.getimgURL()).into(image);
+        nom.setText(cocktail.getName());
+        Id.setText(cocktail.getId());
+        instruction.setText(cocktail.getInstructions());
     }
 }
