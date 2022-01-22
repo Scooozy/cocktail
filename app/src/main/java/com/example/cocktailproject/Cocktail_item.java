@@ -1,10 +1,10 @@
 package com.example.cocktailproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class people_item extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Cocktail_item extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

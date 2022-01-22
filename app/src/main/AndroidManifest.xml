@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StarWarsProject">
-        <activity android:name=".people_item"></activity>
+        <activity android:name=".Cocktail_item"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".AccueilActivity">
             <intent-filter>

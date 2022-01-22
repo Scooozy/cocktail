@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         View view = findViewById(R.id.main);
-        gridView = findViewById(R.id.idGridView);
+        gridView = findViewById(R.id.listeCocktails);
 
         Boolean canon = getIntent().getExtras().getBoolean("canon");
         if (canon){

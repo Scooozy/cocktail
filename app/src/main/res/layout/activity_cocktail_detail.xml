@@ -10,7 +10,7 @@
     app:cardBackgroundColor="#000000"
     app:cardCornerRadius="4dp"
     app:cardElevation="5dp"
-    tools:context=".people_item">
+    tools:context=".Cocktail_item">
 
     <RelativeLayout
         android:layout_width="match_parent"
