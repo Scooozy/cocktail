@@ -10,17 +10,17 @@ import android.widget.TextView;
 
 import com.example.cocktailproject.R;
 import com.example.cocktailproject.glide.GlideApp;
-import com.example.cocktailproject.model.People;
+import com.example.cocktailproject.model.Cocktails;
 
 import java.util.List;
 
 public class LegendsPeopleAdapter extends BaseAdapter{
 
-    private List<People> peopleImage;
+    private List<Cocktails> peopleImage;
     private Context context;
 
 
-    public LegendsPeopleAdapter(List<People> peopleImage, Context context) {
+    public LegendsPeopleAdapter(List<Cocktails> peopleImage, Context context) {
         this.peopleImage = peopleImage;
         this.context = context;
     }
@@ -48,9 +48,7 @@ public class LegendsPeopleAdapter extends BaseAdapter{
         ImageView imageView =view.findViewById(R.id.imgViewy);
         TextView textView = view.findViewById(R.id.textViewGrid2);
 
-        textView.setText(peopleImage.get(i).getName());
-        GlideApp.with(context).load(peopleImage.get(i).getImage()).into(imageView);
-        System.out.println(peopleImage.get(i).getImage());
+
 
 
         return view;

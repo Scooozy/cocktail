@@ -10,18 +10,18 @@ import android.widget.TextView;
 
 import com.example.cocktailproject.R;
 import com.example.cocktailproject.glide.GlideApp;
-import com.example.cocktailproject.model.People;
+import com.example.cocktailproject.model.Cocktails;
 
 
 import java.util.List;
 
-public class CanonPeopleAdapter extends BaseAdapter{
+public class AlcoolicAdapter extends BaseAdapter{
 
-    private List<People> peopleCanon;
+    private List<Cocktails> peopleCanon;
     private Context context;
 
 
-    public CanonPeopleAdapter(List<People> peopleCanon, Context context) {
+    public AlcoolicAdapter(List<Cocktails> peopleCanon, Context context) {
         this.peopleCanon = peopleCanon;
         this.context = context;
     }
@@ -47,15 +47,14 @@ public class CanonPeopleAdapter extends BaseAdapter{
         if (view == null){
             view = LayoutInflater.from(context).inflate(R.layout.activity_people_item,viewGroup, false);
         }
-        String birth = peopleCanon.get(i).getBirth_year();
 
 
         ImageView imageView =view.findViewById(R.id.imgViewy);
         TextView textView = view.findViewById(R.id.textViewGrid2);
 
-        textView.setText(peopleCanon.get(i).getName());
-        GlideApp.with(context).load(peopleCanon.get(i).getImage()).into(imageView);
-        System.out.println(peopleCanon.get(i).getImage());
+        //textView.setText(peopleCanon.get(i).getName());
+        //GlideApp.with(context).load(peopleCanon.get(i).getImage()).into(imageView);
+        System.out.println(peopleCanon.get(i).getStrDrinkThumb());
 
 
         return view;

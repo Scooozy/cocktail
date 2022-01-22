@@ -8,8 +8,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cocktailproject.adapter.CanonPeopleAdapter;
-import com.example.cocktailproject.model.People;
+import com.example.cocktailproject.adapter.AlcoolicAdapter;
+import com.example.cocktailproject.model.Cocktails;
+import com.example.cocktailproject.model.CocktailsWrapper;
 import com.example.cocktailproject.web.ApiClient;
 
 import java.util.ArrayList;
@@ -21,8 +22,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private List<People> peopleList = new ArrayList<>();
+    private List<Cocktails> cocktailAlcoolicList = new ArrayList<>();
     GridView gridView;
 
 
@@ -39,26 +39,27 @@ public class MainActivity extends AppCompatActivity {
         }else{
 
             view.setBackgroundColor(Color.rgb( 2, 10, 80));
-            getAllImageCanon();
+            getAllImageAlcoolic();
         }
 
 
 
 
     }
-    public void getAllImageCanon(){
-        Call<List<People>> peopleCanon = ApiClient.getInterface2().getAllPeople();
-        peopleCanon.enqueue(new Callback<List<People>>() {
+    public void getAllImageAlcoolic(){
+        Call<CocktailsWrapper> coctailAlcoolic = ApiClient.getInterface().getAllCocktails();
+        coctailAlcoolic.enqueue(new Callback<CocktailsWrapper>() {
             @Override
-            public void onResponse(Call<List<People>> call, Response<List<People>> response) {
+            public void onResponse(Call<CocktailsWrapper> call, Response<CocktailsWrapper> response) {
 
                 if (response.isSuccessful()){
                     String message = "Request successful ...";
                     Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
 
-                    peopleList = response.body();
-                    CanonPeopleAdapter canonPeopleAdapter = new CanonPeopleAdapter(peopleList, MainActivity.this);
-                    gridView.setAdapter(canonPeopleAdapter);
+                    cocktailAlcoolicList = response.body().getDrink();
+                    System.out.println(cocktailAlcoolicList);
+                    AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
+                    gridView.setAdapter(alcoolicAdapter);
                 }else{
                     String message = "An error occurred try again later ...";
                     Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
@@ -66,13 +67,11 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<People>> call, Throwable t) {
+            public void onFailure(Call<CocktailsWrapper> call, Throwable t) {
 
                 String message = t.getLocalizedMessage();
                 Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
             }
         });
     }
-
-
 }

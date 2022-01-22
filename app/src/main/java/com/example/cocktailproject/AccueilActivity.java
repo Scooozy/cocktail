@@ -15,8 +15,8 @@ public class AccueilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        canon = findViewById(R.id.canon);
-        legends = findViewById(R.id.legends);
+        canon = findViewById(R.id.alcoholic);
+        legends = findViewById(R.id.nonAlcoholic);
 
         canon.setOnClickListener(v -> {
             Intent intent = new Intent(AccueilActivity.this, MainActivity.class);

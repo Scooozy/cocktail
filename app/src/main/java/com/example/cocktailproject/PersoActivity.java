@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cocktailproject.model.People;
 
 public class PersoActivity extends AppCompatActivity {
     ImageView imagePerso;
@@ -40,21 +39,12 @@ public class PersoActivity extends AppCompatActivity {
         masse       = findViewById(R.id.MasseRep);
 
         //attribution des valeurs
-        People personnage = getIntent().getParcelableExtra("perso");
 
-        nomPre.setText(personnage.getName());
-        genre.setText(personnage.getGender());
-        date.setText(personnage.getDateNaissance());
-        espece.setText(personnage.getSpecies());
-        apparitions.setText(personnage.getApparitions());
-        wiki.setText(personnage.getWikiLien());
-        taille.setText(personnage.getHeight());
-        masse.setText(personnage.getMass());
 
         //attribution des listeners
         incarner.setOnClickListener(v -> {
             Intent intent = new Intent(PersoActivity.this, MainActivity.class);
-            intent.putExtra("persoIncarne", personnage.getImage());
+            //intent.putExtra("persoIncarne", personnage.getImage());
         });
     }
 }

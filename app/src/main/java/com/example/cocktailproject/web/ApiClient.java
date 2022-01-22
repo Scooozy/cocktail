@@ -17,7 +17,7 @@ public class ApiClient {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://akabab.github.io/starwars-api/api/")
+                .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
@@ -29,25 +29,5 @@ public class ApiClient {
         return apiInterface;
     }
 
-    private static Retrofit getRetrofit2(){
 
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(httpLoggingInterceptor)
-                .build();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://swapi.dev/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient)
-                .build();
-
-        return retrofit;
-    }
-    public static ApiInterface getInterface2(){
-        ApiInterface apiInterface = getRetrofit2().create(ApiInterface.class);
-        return apiInterface;
-    }
 }
