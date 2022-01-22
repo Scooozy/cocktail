@@ -28,4 +28,26 @@ public class ApiClient {
         ApiInterface apiInterface = getRetrofit().create(ApiInterface.class);
         return apiInterface;
     }
+
+    private static Retrofit getRetrofit2(){
+
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(httpLoggingInterceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://swapi.dev/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+
+        return retrofit;
+    }
+    public static ApiInterface getInterface2(){
+        ApiInterface apiInterface = getRetrofit2().create(ApiInterface.class);
+        return apiInterface;
+    }
 }

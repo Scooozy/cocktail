@@ -39,15 +39,16 @@ public class MainActivity extends AppCompatActivity {
         }else{
 
             view.setBackgroundColor(Color.rgb( 2, 10, 80));
+            getAllImageCanon();
         }
 
-        getAllImage();
+
 
 
     }
-    public void getAllImage(){
-        Call<List<People>> peopleImage = ApiClient.getInterface().getAllImages();
-        peopleImage.enqueue(new Callback<List<People>>() {
+    public void getAllImageCanon(){
+        Call<List<People>> peopleCanon = ApiClient.getInterface2().getAllPeople();
+        peopleCanon.enqueue(new Callback<List<People>>() {
             @Override
             public void onResponse(Call<List<People>> call, Response<List<People>> response) {
 

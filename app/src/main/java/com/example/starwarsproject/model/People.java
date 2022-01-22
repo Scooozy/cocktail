@@ -10,14 +10,16 @@ public class People {
     String dateNaissance;
     String apparitions;
     String wikiLien;
+    String birth_year;
 
-    public People(String name, String height, String mass, String gender, String image, String species) {
+    public People(String name, String height, String mass, String gender, String image, String species, String birth_year) {
         this.name = name;
         this.height = height;
         this.mass = mass;
         this.gender = gender;
         this.image = image;
         this.species = species;
+        this.birth_year = birth_year;
     }
 
     public People() {
@@ -96,18 +98,27 @@ public class People {
         this.wikiLien = wikiLien;
     }
 
+    public String getBirth_year() {
+        return birth_year;
+    }
+
+    public void setBirth_year(String birth_year) {
+        this.birth_year = birth_year;
+    }
+
     @Override
     public String toString() {
         return "People{" +
                 "name='" + name + '\'' +
-                ", height=" + height +
-                ", mass=" + mass +
+                ", height='" + height + '\'' +
+                ", mass='" + mass + '\'' +
                 ", gender='" + gender + '\'' +
                 ", image='" + image + '\'' +
                 ", species='" + species + '\'' +
-                ", date de naissance='" + dateNaissance + '\'' +
-                ", Apparitions='" + apparitions + '\'' +
-                ", lien vers le Wiki='" + wikiLien + '\'' +
+                ", dateNaissance='" + dateNaissance + '\'' +
+                ", apparitions='" + apparitions + '\'' +
+                ", wikiLien='" + wikiLien + '\'' +
+                ", birth_year='" + birth_year + '\'' +
                 '}';
     }
 }
