@@ -1,4 +1,4 @@
-package com.example.starwarsproject.model;
+package com.example.cocktailproject.model;
 
 public class People {
     String name;

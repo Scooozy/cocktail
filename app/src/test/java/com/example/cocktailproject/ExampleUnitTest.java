@@ -1,4 +1,4 @@
-package com.example.starwarsproject;
+package com.example.cocktailproject;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
-package com.example.starwarsproject.web;
+package com.example.cocktailproject.web;
 
-import com.example.starwarsproject.model.People;
+import com.example.cocktailproject.model.People;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;

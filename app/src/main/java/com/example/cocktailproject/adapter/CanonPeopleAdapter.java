@@ -1,4 +1,4 @@
-package com.example.starwarsproject.adapter;
+package com.example.cocktailproject.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,9 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.starwarsproject.R;
-import com.example.starwarsproject.glide.GlideApp;
-import com.example.starwarsproject.model.People;
+import com.example.cocktailproject.R;
+import com.example.cocktailproject.glide.GlideApp;
+import com.example.cocktailproject.model.People;
 
 
 import java.util.List;

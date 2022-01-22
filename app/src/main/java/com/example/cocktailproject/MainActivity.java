@@ -1,4 +1,4 @@
-package com.example.starwarsproject;
+package com.example.cocktailproject;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,9 +8,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.starwarsproject.adapter.CanonPeopleAdapter;
-import com.example.starwarsproject.model.People;
-import com.example.starwarsproject.web.ApiClient;
+import com.example.cocktailproject.adapter.CanonPeopleAdapter;
+import com.example.cocktailproject.model.People;
+import com.example.cocktailproject.web.ApiClient;
 
 import java.util.ArrayList;
 import java.util.List;

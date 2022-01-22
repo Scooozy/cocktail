@@ -1,4 +1,4 @@
-package com.example.starwarsproject.glide;
+package com.example.cocktailproject.glide;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;

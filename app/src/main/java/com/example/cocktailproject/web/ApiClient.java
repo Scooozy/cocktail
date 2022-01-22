@@ -1,4 +1,4 @@
-package com.example.starwarsproject.web;
+package com.example.cocktailproject.web;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

@@ -1,4 +1,4 @@
-package com.example.starwarsproject;
+package com.example.cocktailproject;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.starwarsproject.model.People;
+import com.example.cocktailproject.model.People;
 
 public class PersoActivity extends AppCompatActivity {
     ImageView imagePerso;

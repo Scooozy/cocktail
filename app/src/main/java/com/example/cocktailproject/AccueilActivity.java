@@ -1,4 +1,4 @@
-package com.example.starwarsproject;
+package com.example.cocktailproject;
 
 import android.content.Intent;
 import android.os.Bundle;
