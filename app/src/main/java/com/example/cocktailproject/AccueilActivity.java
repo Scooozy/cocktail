@@ -8,26 +8,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AccueilActivity extends AppCompatActivity {
 
-    ImageButton canon;
-    ImageButton legends;
+    ImageButton alcohol;
+    ImageButton nonAlcohol;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        canon = findViewById(R.id.alcoholic);
-        legends = findViewById(R.id.nonAlcoholic);
+        alcohol = findViewById(R.id.alcoholic);
+        nonAlcohol = findViewById(R.id.nonAlcoholic);
 
-        canon.setOnClickListener(v -> {
+        alcohol.setOnClickListener(v -> {
             Intent intent = new Intent(AccueilActivity.this, MainActivity.class);
-            intent.putExtra("canon", true);
+            intent.putExtra("alcohol", true);
 
             startActivity(intent);
         });
 
-        legends.setOnClickListener(v -> {
+        nonAlcohol.setOnClickListener(v -> {
             Intent intent = new Intent(AccueilActivity.this, MainActivity.class);
-            intent.putExtra("canon", false);
+            intent.putExtra("alcohol", false);
 
             startActivity(intent);
         });

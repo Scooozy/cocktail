@@ -14,13 +14,13 @@ import com.example.cocktailproject.model.Cocktails;
 
 import java.util.List;
 
-public class LegendsPeopleAdapter extends BaseAdapter{
+public class NonAlcoholicAdapter extends BaseAdapter{
 
     private List<Cocktails> peopleImage;
     private Context context;
 
 
-    public LegendsPeopleAdapter(List<Cocktails> peopleImage, Context context) {
+    public NonAlcoholicAdapter(List<Cocktails> peopleImage, Context context) {
         this.peopleImage = peopleImage;
         this.context = context;
     }

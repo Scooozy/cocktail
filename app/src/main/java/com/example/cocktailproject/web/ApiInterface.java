@@ -9,6 +9,8 @@ import retrofit2.http.GET;
 
 public interface ApiInterface {
     @GET("filter.php?a=Alcoholic")
-    Call<CocktailsWrapper> getAllCocktails();
+    Call<CocktailsWrapper> getAllAlcoholic();
+    @GET("filter.php?a=Non_Alcoholic")
+    Call<CocktailsWrapper> getAllNonAlcoholic();
 
 }

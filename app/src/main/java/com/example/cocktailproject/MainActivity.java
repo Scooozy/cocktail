@@ -33,21 +33,19 @@ public class MainActivity extends AppCompatActivity {
         View view = findViewById(R.id.main);
         gridView = findViewById(R.id.listeCocktails);
 
-        Boolean canon = getIntent().getExtras().getBoolean("canon");
-        if (canon){
-            view.setBackgroundColor(Color.rgb( 80, 10, 2));
+        Boolean alcohol = getIntent().getExtras().getBoolean("alcohol");
+        if (alcohol){
+            getAllImageAlcoholic();
         }else{
-
-            view.setBackgroundColor(Color.rgb( 2, 10, 80));
-            getAllImageAlcoolic();
+            getAllImageNonAlcoholic();
         }
 
 
 
 
     }
-    public void getAllImageAlcoolic(){
-        Call<CocktailsWrapper> coctailAlcoolic = ApiClient.getInterface().getAllCocktails();
+    public void getAllImageAlcoholic(){
+        Call<CocktailsWrapper> coctailAlcoolic = ApiClient.getInterface().getAllAlcoholic();
         coctailAlcoolic.enqueue(new Callback<CocktailsWrapper>() {
             @Override
             public void onResponse(Call<CocktailsWrapper> call, Response<CocktailsWrapper> response) {
@@ -58,8 +56,46 @@ public class MainActivity extends AppCompatActivity {
 
                     cocktailAlcoolicList = response.body().getDrink();
                     System.out.println(cocktailAlcoolicList);
-                    AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
-                    gridView.setAdapter(alcoolicAdapter);
+                    if (cocktailAlcoolicList != null){
+
+                        AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
+                        gridView.setAdapter(alcoolicAdapter);
+                    }else{
+                        System.out.println("null");
+                    }
+                }else{
+                    String message = "An error occurred try again later ...";
+                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CocktailsWrapper> call, Throwable t) {
+
+                String message = t.getLocalizedMessage();
+                Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    public void getAllImageNonAlcoholic(){
+        Call<CocktailsWrapper> coctailAlcoolic = ApiClient.getInterface().getAllNonAlcoholic();
+        coctailAlcoolic.enqueue(new Callback<CocktailsWrapper>() {
+            @Override
+            public void onResponse(Call<CocktailsWrapper> call, Response<CocktailsWrapper> response) {
+
+                if (response.isSuccessful()){
+                    String message = "Request successful ...";
+                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+
+                    cocktailAlcoolicList = response.body().getDrink();
+                    System.out.println(cocktailAlcoolicList);
+                    if (cocktailAlcoolicList != null){
+
+                        AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
+                        gridView.setAdapter(alcoolicAdapter);
+                    }else{
+                        System.out.println("null");
+                    }
                 }else{
                     String message = "An error occurred try again later ...";
                     Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();

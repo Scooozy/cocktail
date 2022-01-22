@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class CocktailsWrapper {
-    @SerializedName("contacts")
+    @SerializedName("drinks")
     @Expose
-    private List<Cocktails> drink = null;
+    private List<Cocktails> drink;
 
     public List<Cocktails> getDrink() {
         return drink;

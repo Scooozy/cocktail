@@ -6,7 +6,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cocktailproject.model.People;
 
 public class CocktailActivity extends AppCompatActivity {
     ImageView image;
@@ -27,11 +26,11 @@ public class CocktailActivity extends AppCompatActivity {
         description = findViewById(R.id.description);
 
         //attribution des valeurs
-        People personnage = getIntent().getParcelableExtra("perso");
+        //People personnage = getIntent().getParcelableExtra("perso");
 
-        nom.setText(personnage.getName());
+        /*nom.setText(personnage.getName());
         date_abv.setText(personnage.getGender());
-        description.setText(personnage.getDateNaissance());
+        description.setText(personnage.getDateNaissance());*/
 
     }
 }

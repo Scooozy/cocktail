@@ -53,7 +53,7 @@ public class AlcoolicAdapter extends BaseAdapter{
         TextView textView = view.findViewById(R.id.textViewGrid2);
 
         //textView.setText(peopleCanon.get(i).getName());
-        //GlideApp.with(context).load(peopleCanon.get(i).getImage()).into(imageView);
+        GlideApp.with(context).load(peopleCanon.get(i).getStrDrinkThumb()).into(imageView);
         System.out.println(peopleCanon.get(i).getStrDrinkThumb());
 
 
