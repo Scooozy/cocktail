@@ -13,6 +13,7 @@
         android:theme="@style/Theme.StarWarsProject">
         <activity android:name=".Cocktail_item"></activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".CocktailActivity"></activity>
         <activity android:name=".AccueilActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,5 +1,6 @@
 package com.example.cocktailproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         gridView = findViewById(R.id.listeCocktails);
 
+
         Spinner choixFiltres = findViewById(R.id.choixFiltre);
 
         AdaptateurSpinnerFiltres adaptateurChoix = new AdaptateurSpinnerFiltres(choixFiltres);
@@ -61,6 +63,14 @@ public class MainActivity extends AppCompatActivity {
         }else{
             getAllImageNonAlcoholic();
         }
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(MainActivity.this, CocktailActivity.class)
+                    .putExtra("data", cocktailAlcoolicList.get(i).getIdDrink()));
+            }
+        });
 
 
 
