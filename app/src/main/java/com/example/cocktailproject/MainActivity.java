@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         gridView = findViewById(R.id.listeCocktails);
         Spinner choixFiltres = findViewById(R.id.choixFiltre);
         ListView listeFiltres = findViewById(R.id.listeFiltres);
+        Button search = findViewById(R.id.rechercher);
 
         AdaptateurSpinnerFiltres adaptateurChoix = new AdaptateurSpinnerFiltres(choixFiltres);
         AdaptateurFiltre adaptateurFiltres = new AdaptateurFiltre(this, adaptateurChoix);
