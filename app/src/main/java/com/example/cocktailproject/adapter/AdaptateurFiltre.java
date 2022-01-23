@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import com.example.cocktailproject.R;
 import com.example.cocktailproject.controleurs.ControleurClicSupprimer;
+import com.example.cocktailproject.controleurs.ControleurValeurFiltre;
 import com.example.cocktailproject.model.FiltreModifiable;
 
 import java.util.ArrayList;
@@ -57,7 +58,8 @@ public class AdaptateurFiltre extends ArrayAdapter<FiltreModifiable<?>> {
 
         vh.nom_filtre.setText(filtre.nom());
 
-
+        vh.controleurValeur = new ControleurValeurFiltre(filtre, vh.valeur_filtre);
+        vh.valeur_filtre.addTextChangedListener(vh.controleurValeur);
 
         vh.supprimer.setOnClickListener(new ControleurClicSupprimer(filtre, this, adaptateurSpinner));
 
@@ -69,6 +71,6 @@ public class AdaptateurFiltre extends ArrayAdapter<FiltreModifiable<?>> {
         EditText valeur_filtre;
         ImageButton supprimer;
 
-
+        ControleurValeurFiltre controleurValeur;
     }
 }

@@ -8,20 +8,11 @@ import android.widget.TextView;
 import com.example.cocktailproject.model.FiltreModifiable;
 import com.example.cocktailproject.R;
 
-/**
- * Controleur de modification de la valeur d’un filtre. En fonction du type de filtre (numérique,
- * littéral…), valide ou invalide le texte entré par l’utilisateur.
- */
+
 public class ControleurValeurFiltre implements TextWatcher {
     protected final FiltreModifiable<?> filtre;
     protected final TextView vue;
 
-    /**
-     * Crée un controleur de valeur de filtre.
-     * 
-     * @param filtre le filtre dont on contrôle la valeur.
-     * @param vue la TextView qui modifie la valeur du filtre.
-     */
     public ControleurValeurFiltre(FiltreModifiable<?> filtre, TextView vue) {
         this.filtre = filtre;
         this.vue = vue;
@@ -50,11 +41,6 @@ public class ControleurValeurFiltre implements TextWatcher {
         validerTexte(validite);
     }
 
-    /**
-     * Notifie l’utilisateur si et seulement s’il y a une erreur dans le format.
-     * 
-     * @param valide true si le format est valide.
-     */
     protected void validerTexte(boolean valide) {
         Context contexte = vue.getContext();
 

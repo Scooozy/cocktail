@@ -18,5 +18,12 @@ public interface ApiInterface {
     @GET("lookup.php?")
     Call<CocktailWrapper> getDrinkById(@Query("i") String idDrink);
 
+    @GET("random.php")
+    Call<CocktailsWrapper> getARandom();
+    @GET("search.php?")
+    Call<CocktailsWrapper> getByName(@Query("s") String nameDrink);
+    @GET("filter.php?")
+    Call<CocktailsWrapper> getByIngredient(@Query("i") String ingredientName);
+
 
 }

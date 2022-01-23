@@ -18,6 +18,7 @@ import com.example.cocktailproject.adapter.AlcoolicAdapter;
 import com.example.cocktailproject.controleurs.ControleurClicFiltre;
 import com.example.cocktailproject.model.Cocktails;
 import com.example.cocktailproject.model.CocktailsWrapper;
+import com.example.cocktailproject.model.Filtre;
 import com.example.cocktailproject.web.ApiClient;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         gridView = findViewById(R.id.listeCocktails);
         Spinner choixFiltres = findViewById(R.id.choixFiltre);
         ListView listeFiltres = findViewById(R.id.listeFiltres);
-        Button search = findViewById(R.id.rechercher);
+
 
         AdaptateurSpinnerFiltres adaptateurChoix = new AdaptateurSpinnerFiltres(choixFiltres);
         AdaptateurFiltre adaptateurFiltres = new AdaptateurFiltre(this, adaptateurChoix);
@@ -47,6 +48,26 @@ public class MainActivity extends AppCompatActivity {
         listeFiltres.setAdapter(adaptateurFiltres);
         choixFiltres.setAdapter(adaptateurChoix);
         choixFiltres.setOnItemSelectedListener(new ControleurClicFiltre(adaptateurFiltres, adaptateurChoix));
+
+        Button search = findViewById(R.id.rechercher);
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Filtre filtre;
+                for (int i = 0; i< adaptateurFiltres.getCount(); i++){
+                    filtre = adaptateurFiltres.getItem(i);
+
+                    if (filtre.nom() == "Name"){
+                        getByName(filtre.texte());
+                    }else if (filtre.nom() == "Ingredient"){
+                        getByIngredient(filtre.texte());
+                    }else if (filtre.nom() == "Random"){
+                        getRandom();
+                    }
+                }
+            }
+        });
 
         Boolean alcohol = getIntent().getExtras().getBoolean("alcohol");
         if (alcohol){
@@ -124,5 +145,96 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void getByName(String texte){
+        Call<CocktailsWrapper> coctailAlcoolic = ApiClient.getInterface().getByName(texte);
+        coctailAlcoolic.enqueue(new Callback<CocktailsWrapper>() {
+            @Override
+            public void onResponse(Call<CocktailsWrapper> call, Response<CocktailsWrapper> response) {
+
+                if (response.isSuccessful()){
+                    String message = "Request successful ...";
+                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+
+                    cocktailAlcoolicList = response.body().getDrink();
+                    System.out.println(cocktailAlcoolicList);
+
+                    AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
+                    gridView.setAdapter(alcoolicAdapter);
+                }else{
+                    String message = "An error occurred try again later ...";
+                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CocktailsWrapper> call, Throwable t) {
+
+                String message = t.getLocalizedMessage();
+                Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public void getByIngredient(String texte){
+        Call<CocktailsWrapper> coctailAlcoolic = ApiClient.getInterface().getByIngredient(texte);
+        coctailAlcoolic.enqueue(new Callback<CocktailsWrapper>() {
+            @Override
+            public void onResponse(Call<CocktailsWrapper> call, Response<CocktailsWrapper> response) {
+
+                if (response.isSuccessful()){
+                    String message = "Request successful ...";
+                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+
+                    cocktailAlcoolicList = response.body().getDrink();
+                    System.out.println(cocktailAlcoolicList);
+
+                    AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
+                    gridView.setAdapter(alcoolicAdapter);
+                }else{
+                    String message = "An error occurred try again later ...";
+                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CocktailsWrapper> call, Throwable t) {
+
+                String message = t.getLocalizedMessage();
+                Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public void getRandom(){
+        Call<CocktailsWrapper> coctailAlcoolic = ApiClient.getInterface().getARandom();
+        coctailAlcoolic.enqueue(new Callback<CocktailsWrapper>() {
+            @Override
+            public void onResponse(Call<CocktailsWrapper> call, Response<CocktailsWrapper> response) {
+
+                if (response.isSuccessful()){
+                    String message = "Request successful ...";
+                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+
+                    cocktailAlcoolicList = response.body().getDrink();
+                    System.out.println(cocktailAlcoolicList);
+
+                    AlcoolicAdapter alcoolicAdapter = new AlcoolicAdapter(cocktailAlcoolicList, MainActivity.this);
+                    gridView.setAdapter(alcoolicAdapter);
+                }else{
+                    String message = "An error occurred try again later ...";
+                    Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CocktailsWrapper> call, Throwable t) {
+
+                String message = t.getLocalizedMessage();
+                Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
 
 }
