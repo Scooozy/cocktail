@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="column_width" />
+    <dimen name="size_title">20dp</dimen>
+    <dimen name="size_img_height">202dp</dimen>
+    <dimen name="size_img_width">250dp</dimen>
+    <dimen name="size_textView">460dp</dimen>
+
+    <dimen name="size_img_grid">230dp</dimen>
+    <dimen name="size_grid">280dp</dimen>
+    <dimen name="txt_size">15dp</dimen>
+    <dimen name="txt_size_title">20dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
+    <dimen name="size_roundimg_height">210dp</dimen>
+    <dimen name="size_roundimg_width">210dp</dimen>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="column_width" />
+    <dimen name="size_title">30dp</dimen>
+    <dimen name="size_img_height">303dp</dimen>
+    <dimen name="size_img_width">376dp</dimen>
+    <dimen name="size_textView">555dp</dimen>
+    <dimen name="size_img_grid">279dp</dimen>
+    <dimen name="size_grid">336dp</dimen>
+    <dimen name="txt_size">20dp</dimen>
+    <dimen name="txt_size_title">30dp</dimen>
+    <dimen name="margin_top">10dp</dimen>
+    <dimen name="size_roundimg_height">253dp</dimen>
+    <dimen name="size_roundimg_width">252dp</dimen>
+</resources>

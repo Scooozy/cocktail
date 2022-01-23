@@ -8,8 +8,8 @@
 
     <ImageButton
         android:id="@+id/alcoholic"
-        android:layout_width="376dp"
-        android:layout_height="303dp"
+        android:layout_width="@dimen/size_img_width"
+        android:layout_height="@dimen/size_img_height"
         android:layout_marginTop="52dp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
@@ -23,8 +23,8 @@
 
     <ImageButton
         android:id="@+id/nonAlcoholic"
-        android:layout_width="376dp"
-        android:layout_height="303dp"
+        android:layout_width="@dimen/size_img_width"
+        android:layout_height="@dimen/size_img_height"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,7 @@
         android:layout_marginTop="48dp"
         android:text="Quel sorte de boissons souhaitez-vous ?"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="@dimen/size_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
