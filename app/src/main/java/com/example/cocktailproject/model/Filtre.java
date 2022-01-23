@@ -19,9 +19,9 @@ public abstract class Filtre<T> {
         if (par_defaut == null) {
             par_defaut = new HashMap<>();
             par_defaut = new HashMap<>();
-            par_defaut.put("Name of drink", new FiltreLitteral("Name", "cocktail_name"));
-            par_defaut.put("Search by ingredient", new FiltreNumerique("ingredient", "ingredient"));
-            par_defaut.put("Give a random drink", new FiltreNumerique("random", "random"));
+            par_defaut.put("Name", new FiltreLitteral("Name", "cocktail_name"));
+            par_defaut.put("Ingredient", new FiltreNumerique("Ingredient", "ingredient"));
+            par_defaut.put("Random", new FiltreNumerique("Random", "random"));
         }
         return par_defaut;
     }

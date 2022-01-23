@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cocktailproject.adapter.AdaptaterFiltre;
+import com.example.cocktailproject.adapter.AdaptateurFiltre;
 import com.example.cocktailproject.adapter.AdaptateurSpinnerFiltres;
 import com.example.cocktailproject.adapter.AlcoolicAdapter;
 import com.example.cocktailproject.controleurs.ControleurClicFiltre;
@@ -35,15 +35,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        ArrayAdapter<Filtre> filtreAdapter;
-//        String[] filtres = {"name of drink", "Search by ingredient", "Search an ingredient"};
-
         gridView = findViewById(R.id.listeCocktails);
         Spinner choixFiltres = findViewById(R.id.choixFiltre);
         ListView listeFiltres = findViewById(R.id.listeFiltres);
 
         AdaptateurSpinnerFiltres adaptateurChoix = new AdaptateurSpinnerFiltres(choixFiltres);
-        AdaptaterFiltre adaptateurFiltres = new AdaptaterFiltre(this, adaptateurChoix);
+        AdaptateurFiltre adaptateurFiltres = new AdaptateurFiltre(this, adaptateurChoix);
 
         listeFiltres.setAdapter(adaptateurFiltres);
         choixFiltres.setAdapter(adaptateurChoix);

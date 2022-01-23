@@ -12,38 +12,38 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.cocktailproject.MainActivity;
 import com.example.cocktailproject.R;
 import com.example.cocktailproject.controleurs.ControleurClicSupprimer;
-import com.example.cocktailproject.model.Filtre;
+import com.example.cocktailproject.model.FiltreModifiable;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class AdaptaterFiltre extends ArrayAdapter<Filtre> {
+public class AdaptateurFiltre extends ArrayAdapter<FiltreModifiable<?>> {
     protected final LayoutInflater inflater;
     protected final AdaptateurSpinnerFiltres adaptateurSpinner;
 
 
-    public AdaptaterFiltre(Context context, AdaptateurSpinnerFiltres adaptateurSpinnerFiltres) {
+    public AdaptateurFiltre(Context context, AdaptateurSpinnerFiltres adaptateurSpinnerFiltres) {
         this(context, new ArrayList<>(), adaptateurSpinnerFiltres);
     }
 
-    public AdaptaterFiltre(Context context, ArrayList<Filtre> filtres, AdaptateurSpinnerFiltres adaptateurSpinnerFiltres) {
+    public AdaptateurFiltre(@NonNull Context context, @NonNull List<FiltreModifiable<?>> filtres, AdaptateurSpinnerFiltres adaptateurSpinner) {
         super(context, R.layout.filtre_layout, filtres);
         this.inflater = LayoutInflater.from(context);
-        this.adaptateurSpinner = adaptateurSpinnerFiltres;
+        this.adaptateurSpinner = adaptateurSpinner;
     }
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View view = convertView;
-        AdaptaterFiltre.ViewHolder vh;
-        Filtre filtre = getItem(position);
+        AdaptateurFiltre.ViewHolder vh;
+        FiltreModifiable<?> filtre = getItem(position);
         int tag_filtre = filtre.hashCode();
 
         if (view == null || view.getTag(tag_filtre) == null) {
             view = inflater.inflate(R.layout.filtre_layout, parent, false);
 
-            vh = new AdaptaterFiltre.ViewHolder();
+            vh = new AdaptateurFiltre.ViewHolder();
 
             vh.nom_filtre = view.findViewById(R.id.nom_filtre);
             vh.valeur_filtre = view.findViewById(R.id.valeur_filtre);
@@ -51,7 +51,7 @@ public class AdaptaterFiltre extends ArrayAdapter<Filtre> {
 
             view.setTag(tag_filtre, vh);
         } else {
-            vh = (AdaptaterFiltre.ViewHolder) view.getTag(tag_filtre);
+            vh = (AdaptateurFiltre.ViewHolder) view.getTag(tag_filtre);
         }
 
 

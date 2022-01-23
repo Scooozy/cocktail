@@ -3,7 +3,7 @@ package com.example.cocktailproject.controleurs;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.example.cocktailproject.adapter.AdaptaterFiltre;
+import com.example.cocktailproject.adapter.AdaptateurFiltre;
 import com.example.cocktailproject.adapter.AdaptateurSpinnerFiltres;
 import com.example.cocktailproject.model.Filtre;
 import com.example.cocktailproject.model.FiltreModifiable;
@@ -15,10 +15,10 @@ import java.util.Map;
  * ajouté à un ViewGroup.
  */
 public class ControleurClicFiltre implements AdapterView.OnItemSelectedListener {
-    protected final AdaptaterFiltre adaptateurFiltres;
+    protected final AdaptateurFiltre adaptateurFiltres;
     protected final AdaptateurSpinnerFiltres adaptateurSpinnerFiltres;
 
-    public ControleurClicFiltre(AdaptaterFiltre adaptateurFiltres, AdaptateurSpinnerFiltres adaptateurSpinnerFiltres) {
+    public ControleurClicFiltre(AdaptateurFiltre adaptateurFiltres, AdaptateurSpinnerFiltres adaptateurSpinnerFiltres) {
         this.adaptateurFiltres = adaptateurFiltres;
         this.adaptateurSpinnerFiltres = adaptateurSpinnerFiltres;
     }
