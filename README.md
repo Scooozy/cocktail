@@ -7,4 +7,5 @@ Description:
 Webservices utilisés:
     Nous avons utilisé: 
         -  https://www.thecocktaildb.com/api.php
+    Pour récupérer les données de l'api nous avons utilisé Retrofit2.
         
