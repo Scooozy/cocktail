@@ -7,17 +7,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.cocktailproject.MainActivity;
 import com.example.cocktailproject.R;
 import com.example.cocktailproject.glide.GlideApp;
 import com.example.cocktailproject.model.Cocktail;
 import com.example.cocktailproject.model.CocktailWrapper;
 import com.example.cocktailproject.model.Cocktails;
-import com.example.cocktailproject.model.CocktailsWrapper;
 import com.example.cocktailproject.web.ApiClient;
-
 
 import java.util.List;
 
@@ -72,10 +68,6 @@ public class AlcoolicAdapter extends BaseAdapter{
                     cocktailAlcoolicNameList = response.body().getDrinkName();
                     System.out.println(cocktailAlcoolicNameList);
                     textView.setText(cocktailAlcoolicNameList.get(0).getStrDrink());
-
-
-
-
                 }
             }
 

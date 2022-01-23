@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.example.cocktailproject.R;
 import com.example.cocktailproject.model.Filtre;
+import com.example.cocktailproject.model.FiltreModifiable;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.Map;
 public class AdaptateurSpinnerFiltres extends ArrayAdapter<String> {
     protected final Spinner spinner;
 
-    public AdaptateurSpinnerFiltres(@NonNull Spinner spinner, @NonNull Map<String, Integer> filtres) {
+    public AdaptateurSpinnerFiltres(@NonNull Spinner spinner, @NonNull Map<String, FiltreModifiable<?>> filtres) {
         super(spinner.getContext(), R.layout.support_simple_spinner_dropdown_item, new ArrayList<>());
 
         this.spinner = spinner;
@@ -44,10 +45,8 @@ public class AdaptateurSpinnerFiltres extends ArrayAdapter<String> {
                     return;
                 }
             }
-            super.add(nouveau);
-        } else {
-            super.add(nouveau);
         }
+        super.add(nouveau);
     }
 
     @Override

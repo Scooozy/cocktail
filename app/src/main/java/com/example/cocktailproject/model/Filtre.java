@@ -1,36 +1,82 @@
 package com.example.cocktailproject.model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-    public abstract class Filtre {
-        final protected String nom_reel;
-        final protected int id;
+public abstract class Filtre<T> {
+    final protected String nom_reel;
+    final protected String nom_url;
 
-        protected static Map<String, Integer> par_defaut;
+    protected static Map<String, FiltreModifiable<?>> par_defaut;
 
-        public static Map<String, Integer> par_defaut() {
-            if (par_defaut != null) {
-                return par_defaut;
-            } else {
-                par_defaut = new HashMap();
-                par_defaut.put("Name of drink", 1);
-                par_defaut.put("Search by ingredient", 2);
-                par_defaut.put("Give a random drink", 3);
-                return par_defaut;
-            }
+    protected T valeur;
+
+    /**
+     * Renvoie sept filtres.
+     * @return Une map nom_du_filtre -> filtre. Cette map et ses éléments sont toujours les mêmes.
+     */
+    public static Map<String, FiltreModifiable<?>> par_defaut() {
+        if (par_defaut == null) {
+            par_defaut = new HashMap<>();
+            par_defaut = new HashMap<>();
+            par_defaut.put("Name of drink", new FiltreLitteral("Name", "cocktail_name"));
+            par_defaut.put("Search by ingredient", new FiltreNumerique("ingredient", "ingredient"));
+            par_defaut.put("Give a random drink", new FiltreNumerique("random", "random"));
         }
-        public String nom() {
-            return nom_reel;
-        }
-
-
-        protected Filtre(String nom_reel, int id) {
-            this.nom_reel = nom_reel;
-            this.id = id;
-        }
-
+        return par_defaut;
     }
+
+    /**
+     * Renvoie le nom réel du filtre.
+     */
+    public String nom() {
+        return nom_reel;
+    }
+
+    /**
+     * Renvoie une chaîne pouvant être intégrée à une url.
+     */
+    public String url() {
+        return nom_url + "=" + texte();
+    }
+
+    /**
+     * Renvoie la valeur.
+     *
+     * @return une chaîne de caractères.
+     */
+    public String texte() {
+        return String.valueOf(valeur);
+    }
+
+    /**
+     * Renvoie le type supporté par le filtre.
+     *
+     * @return 1 pour un littéral, 2 pour un numérique.
+     */
+    public abstract int type();
+
+    /**
+     * Vérifie si la valeur actuelle du filtre est valide.
+     *
+     * @return true si la valeure est valide.
+     */
+    public abstract boolean estValide();
+
+    /**
+     * Crée un filtre.
+     *
+     * @param nom_reel le nom du filtre en français
+     * @param nom_url le nom du filtre à utiliser dans l’URL
+     */
+    protected Filtre(String nom_reel, String nom_url) {
+        this.nom_reel = nom_reel;
+        this.nom_url = nom_url;
+    }
+
+    @Override
+    public int hashCode() {
+        return nom_url.hashCode();
+    }
+}
 

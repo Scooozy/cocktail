@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -18,7 +17,6 @@ import com.example.cocktailproject.adapter.AlcoolicAdapter;
 import com.example.cocktailproject.controleurs.ControleurClicFiltre;
 import com.example.cocktailproject.model.Cocktails;
 import com.example.cocktailproject.model.CocktailsWrapper;
-import com.example.cocktailproject.model.Filtre;
 import com.example.cocktailproject.web.ApiClient;
 
 import java.util.ArrayList;
@@ -29,33 +27,27 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-
-    private List<Cocktails> cocktailAlcoolicList = new ArrayList<>();
     GridView gridView;
-
+    private List<Cocktails> cocktailAlcoolicList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        ArrayAdapter<Filtre> filtreAdapter;
-        String[] filtres = {"name of drink", "Search by ingredient", "Search an ingredient"};
+//        ArrayAdapter<Filtre> filtreAdapter;
+//        String[] filtres = {"name of drink", "Search by ingredient", "Search an ingredient"};
 
         gridView = findViewById(R.id.listeCocktails);
-
-
         Spinner choixFiltres = findViewById(R.id.choixFiltre);
+        ListView listeFiltres = findViewById(R.id.listeFiltres);
 
         AdaptateurSpinnerFiltres adaptateurChoix = new AdaptateurSpinnerFiltres(choixFiltres);
         AdaptaterFiltre adaptateurFiltres = new AdaptaterFiltre(this, adaptateurChoix);
 
-
+        listeFiltres.setAdapter(adaptateurFiltres);
         choixFiltres.setAdapter(adaptateurChoix);
         choixFiltres.setOnItemSelectedListener(new ControleurClicFiltre(adaptateurFiltres, adaptateurChoix));
-
-
 
         Boolean alcohol = getIntent().getExtras().getBoolean("alcohol");
         if (alcohol){

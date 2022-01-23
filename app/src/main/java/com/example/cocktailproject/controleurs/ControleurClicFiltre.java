@@ -6,9 +6,14 @@ import android.widget.AdapterView;
 import com.example.cocktailproject.adapter.AdaptaterFiltre;
 import com.example.cocktailproject.adapter.AdaptateurSpinnerFiltres;
 import com.example.cocktailproject.model.Filtre;
+import com.example.cocktailproject.model.FiltreModifiable;
 
 import java.util.Map;
 
+/**
+ * Contrôleur de clic sur un filtre dans un spinner. Au clic, le filtre est retiré du spinner et
+ * ajouté à un ViewGroup.
+ */
 public class ControleurClicFiltre implements AdapterView.OnItemSelectedListener {
     protected final AdaptaterFiltre adaptateurFiltres;
     protected final AdaptateurSpinnerFiltres adaptateurSpinnerFiltres;
@@ -20,14 +25,11 @@ public class ControleurClicFiltre implements AdapterView.OnItemSelectedListener 
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String nom_filtre = String.valueOf(parent.getItemAtPosition(position));
-        Map<String, Integer> filtres = Filtre.par_defaut();
+        String nom_filtre = (String) parent.getItemAtPosition(position);
+        Map<String, FiltreModifiable<?>> filtres = Filtre.par_defaut();
 
         if (filtres.containsKey(nom_filtre)) {
-            
-            //Filtre filtre = filtres.get(position);
-
-            //adaptateurFiltres.add(filtre);
+            adaptateurFiltres.add(filtres.get(nom_filtre));
             adaptateurSpinnerFiltres.remove(nom_filtre);
             parent.setSelection(0);
         }
